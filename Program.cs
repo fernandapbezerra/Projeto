@@ -1,27 +1,41 @@
 ﻿//Vamos criar um programa que gerencie uma lista de notas de alunos e calcule a média. O usuário poderá:
-//1.Inserir as notas de um aluno. (Cada aluno tem 5 notas)
-double[] notas = new double[5];
+//1.Inserir as notas de um aluno. (Cada aluno tem 5 notas):
 
-for (int i = 0; i < 5; i++)
+int[] notas = new int[5];
+for (int i = 0; i< notas.Length; i ++)
 {
-    Console.Write($"Digite a nota {i + 1}: ");
-    notas[i] = Convert.ToDouble(Console.ReadLine());
+   Console.WriteLine("Informe a nota");
+    notas[i] = int.Parse(Console.ReadLine());
 }
 
-Console.WriteLine("As notas do aluno são:");
-for (int i = 0; i < 5; i++)
+//2.Exibir as notas:
+
+for (int i = 0;i<notas.Length;i ++)
 {
-    Console.WriteLine($"Nota {i + 1}: {notas[i]}");
+    Console.WriteLine(notas[i]);
 }
 
-//2.Exibir as notas.
-double[] Notas = { 8.5, 7.0, 9.3, 6.7, 5.0 };
+//3.calcular a média:
+//Soma das Notas - Quantidade (ja possuo)
 
+int somaNotas = 0;
 
-Console.WriteLine("Notas dos alunos:");
-
-foreach (double nota in notas)
+for (int i = 0; i < notas.Length ; i ++)
 {
-    Console.WriteLine(nota);
+    somaNotas = notas[i] + somaNotas;
 }
 
+int media = somaNotas / notas.Length;
+Console.WriteLine(media);
+
+//4.Verificar se o aluno foi aprovado ou reprovado (média >= 7 para aprovação):
+
+if (media >= 7)
+{
+    Console.WriteLine("O aluno foi APROVADO");
+}
+else
+{
+
+    Console.WriteLine("O aluno foi REPROVADO");
+}
